@@ -1,0 +1,74 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.VerifyReferenceTrimCompatibility = 
+build_property.VerifyReferenceAotCompatibility = 
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = site-blazor
+build_property.RootNamespace = site-blazor
+build_property.ProjectDir = C:\Users\Michal\Desktop\site-blazor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 10.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Michal\Desktop\site-blazor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Michal/Desktop/site-blazor/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Pages/CS2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ1MyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Pages/Dota2.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRG90YTIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Pages/LoL.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9MLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Pages/Valorant.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmFsb3JhbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Shared/CountdownTimer.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXENvdW50ZG93blRpbWVyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Shared/MatchCard.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1hdGNoQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Michal/Desktop/site-blazor/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-h28uuc9ajv

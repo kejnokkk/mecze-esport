@@ -1,0 +1,63 @@
+@page "/cs2"
+<PageTitle>E-sportowe mecze - CS2</PageTitle>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="game-badge">
+            <img src="images/games/cs2.png" alt="CS2" class="game-badge-logo" />
+            Counter-Strike 2
+        </span>
+        <h2 style="margin-top: 15px;">Mecze CS2</h2>
+        <p>Najlepsze rozgrywki taktycznego shootera</p>
+    </div>
+</section>
+
+<CountdownTimer Matches="Matches" />
+
+<main class="container">
+    <h2 class="section-title">Mecze CS2</h2>
+    <div class="matches-grid">
+        @foreach (var match in Matches)
+        {
+            <MatchCard Match="match" />
+        }
+    </div>
+</main>
+
+@code {
+    private List<Match> Matches = new()
+    {
+        new Match {
+            GameImage = "images/games/cs2.png", GameName = "CS2",
+            Tournament = "IEM Katowice 2026",
+            Status = MatchStatus.Live, Score = "1 : 0",
+            Team1 = new() { Logo = "images/teams/navi.png",     Name = "Natus Vincere", Tag = "NaVi" },
+            Team2 = new() { Logo = "images/teams/faze.png",     Name = "FaZe Clan",     Tag = "FaZe" },
+            Date = "27.06.2026", Time = "10:30", ButtonLabel = "Oglądaj na żywo"
+        },
+        new Match {
+            GameImage = "images/games/cs2.png", GameName = "CS2",
+            Tournament = "ESL Pro League S20",
+            Status = MatchStatus.Upcoming,
+            Team1 = new() { Logo = "images/teams/g2.png",       Name = "G2 Esports",   Tag = "G2"  },
+            Team2 = new() { Logo = "images/teams/vitality.png", Name = "Team Vitality", Tag = "VIT" },
+            Date = "27.06.2026", Time = "22:00", ButtonLabel = "Szczegóły"
+        },
+        new Match {
+            GameImage = "images/games/cs2.png", GameName = "CS2",
+            Tournament = "BLAST Premier",
+            Status = MatchStatus.Upcoming,
+            Team1 = new() { Logo = "images/teams/astralis.png", Name = "Astralis", Tag = "AST"  },
+            Team2 = new() { Logo = "images/teams/mouz.png",     Name = "MOUZ",     Tag = "MOUZ" },
+            Date = "28.06.2026", Time = "19:30", ButtonLabel = "Szczegóły"
+        },
+        new Match {
+            GameImage = "images/games/cs2.png", GameName = "CS2",
+            Tournament = "PGL Major 2026",
+            Status = MatchStatus.Finished, Score = "2 : 1",
+            Team1 = new() { Logo = "images/teams/spirit.png",  Name = "Team Spirit", Tag = "SPR" },
+            Team2 = new() { Logo = "images/teams/heroic.png",  Name = "Heroic",      Tag = "HRC" },
+            Date = "29.06.2026", Time = "21:45", ButtonLabel = "Powtórka"
+        },
+    };
+}

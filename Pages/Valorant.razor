@@ -1,0 +1,63 @@
+@page "/valorant"
+<PageTitle>E-sportowe mecze - Valorant</PageTitle>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="game-badge">
+            <img src="images/games/valorant.png" alt="Valorant" class="game-badge-logo" />
+            Valorant
+        </span>
+        <h2 style="margin-top: 15px;">Mecze Valorant</h2>
+        <p>Taktyczne starcia agentów od Riot Games</p>
+    </div>
+</section>
+
+<CountdownTimer Matches="Matches" />
+
+<main class="container">
+    <h2 class="section-title">Mecze Valorant</h2>
+    <div class="matches-grid">
+        @foreach (var match in Matches)
+        {
+            <MatchCard Match="match" />
+        }
+    </div>
+</main>
+
+@code {
+    private List<Match> Matches = new()
+    {
+        new Match {
+            GameImage = "images/games/valorant.png", GameName = "Valorant",
+            Tournament = "VCT Masters Madrid",
+            Status = MatchStatus.Live, Score = "13 : 8",
+            Team1 = new() { Logo = "images/teams/sentinels.png", Name = "Sentinels", Tag = "SEN" },
+            Team2 = new() { Logo = "images/teams/fnatic.png",    Name = "Fnatic",    Tag = "FNC" },
+            Date = "27.06.2026", Time = "11:00", ButtonLabel = "Oglądaj na żywo"
+        },
+        new Match {
+            GameImage = "images/games/valorant.png", GameName = "Valorant",
+            Tournament = "VCT Champions 2026",
+            Status = MatchStatus.Upcoming,
+            Team1 = new() { Logo = "images/teams/navi.png",     Name = "Natus Vincere", Tag = "NaVi" },
+            Team2 = new() { Logo = "images/teams/vitality.png", Name = "Team Vitality", Tag = "VIT"  },
+            Date = "27.06.2026", Time = "23:00", ButtonLabel = "Szczegóły"
+        },
+        new Match {
+            GameImage = "images/games/valorant.png", GameName = "Valorant",
+            Tournament = "VCT EMEA 2026",
+            Status = MatchStatus.Upcoming,
+            Team1 = new() { Logo = "images/teams/g2.png",     Name = "G2 Esports",  Tag = "G2" },
+            Team2 = new() { Logo = "images/teams/liquid.png", Name = "Team Liquid",  Tag = "TL" },
+            Date = "28.06.2026", Time = "17:45", ButtonLabel = "Szczegóły"
+        },
+        new Match {
+            GameImage = "images/games/valorant.png", GameName = "Valorant",
+            Tournament = "VCT Pacific 2026",
+            Status = MatchStatus.Finished, Score = "2 : 1",
+            Team1 = new() { Logo = "images/teams/t1.png",     Name = "T1",     Tag = "T1" },
+            Team2 = new() { Logo = "images/teams/cloud9.png", Name = "Cloud9", Tag = "C9" },
+            Date = "29.06.2026", Time = "17:00", ButtonLabel = "Powtórka"
+        },
+    };
+}

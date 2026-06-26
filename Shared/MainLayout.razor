@@ -1,0 +1,65 @@
+@inherits LayoutComponentBase
+@inject NavigationManager Nav
+@inject site_blazor.Services.ThemeService ThemeService
+@inject IJSRuntime JS
+@implements IDisposable
+
+<div class="@GameTheme">
+
+    <header class="main-header">
+        <div class="header-left">
+            <img src="images/logo.png" alt="Logo" class="info-icon" />
+            <h1 class="header-title">E-sportowe mecze</h1>
+        </div>
+        <div class="header-right">
+            <button class="theme-toggle" @onclick="ToggleTheme">
+                @(ThemeService.IsDarkMode ? "☀️ Jasny" : "🌙 Ciemny")
+            </button>
+            <span class="user-info">Michał Nojek (album: 127922)</span>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <ul>
+            <li><NavLink href="/" Match="NavLinkMatch.All">Strona główna</NavLink></li>
+            <li><NavLink href="/cs2">CS2</NavLink></li>
+            <li><NavLink href="/dota2">Dota 2</NavLink></li>
+            <li><NavLink href="/lol">League of Legends</NavLink></li>
+            <li><NavLink href="/valorant">Valorant</NavLink></li>
+        </ul>
+    </nav>
+
+    @Body
+
+    <footer class="main-footer">
+        <p>&copy; 2026 E-sportowe mecze | Wszelkie prawa zastrzeżone</p>
+    </footer>
+
+</div>
+
+@code {
+    private string GameTheme => new Uri(Nav.Uri).AbsolutePath.ToLower().Trim('/') switch
+    {
+        "cs2"      => "theme-cs2",
+        "dota2"    => "theme-dota2",
+        "lol"      => "theme-lol",
+        "valorant" => "theme-valorant",
+        _          => ""
+    };
+
+    private async Task ToggleTheme()
+    {
+        ThemeService.Toggle();
+        await JS.InvokeVoidAsync("setTheme", ThemeService.IsDarkMode);
+    }
+
+    protected override void OnInitialized()
+    {
+        ThemeService.OnThemeChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ThemeService.OnThemeChanged -= StateHasChanged;
+    }
+}

@@ -1,0 +1,62 @@
+@implements IDisposable
+
+@if (NextMatch is not null)
+{
+    <div class="countdown-banner">
+        <span class="countdown-label">⏱ Następny mecz:</span>
+        <span class="countdown-time">@TimeLeft</span>
+        <span class="countdown-match">@NextMatch.Team1.Name vs @NextMatch.Team2.Name</span>
+        <span class="countdown-label">— @NextMatch.Tournament</span>
+    </div>
+}
+
+@code {
+    [Parameter, EditorRequired] public List<Match> Matches { get; set; } = default!;
+
+    private Match? NextMatch;
+    private string TimeLeft = "";
+    private Timer? _timer;
+
+    protected override void OnInitialized()
+    {
+        NextMatch = Matches
+            .Where(m => m.Status == MatchStatus.Upcoming)
+            .FirstOrDefault();
+
+        if (NextMatch is not null)
+        {
+            _timer = new Timer(_ =>
+            {
+                UpdateCountdown();
+                InvokeAsync(StateHasChanged);
+            }, null, 0, 1000);
+        }
+    }
+
+    private void UpdateCountdown()
+    {
+        if (NextMatch is null) return;
+
+        var parts = NextMatch.Date.Split('.');
+        var timeParts = NextMatch.Time.Split(':');
+
+        var matchTime = new DateTime(
+            int.Parse(parts[2]),
+            int.Parse(parts[1]),
+            int.Parse(parts[0]),
+            int.Parse(timeParts[0]),
+            int.Parse(timeParts[1]),
+            0
+        );
+
+        // Przesuń datę do przyszłości jeśli jest w przeszłości
+        while (matchTime < DateTime.Now)
+            matchTime = matchTime.AddDays(7);
+
+        var diff = matchTime - DateTime.Now;
+
+        TimeLeft = $"{(int)diff.TotalHours}h {diff.Minutes}m {diff.Seconds}s";
+    }
+
+    public void Dispose() => _timer?.Dispose();
+}

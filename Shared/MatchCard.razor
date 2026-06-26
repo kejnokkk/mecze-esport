@@ -1,0 +1,64 @@
+<div class="match-card">
+    <div class="match-header">
+        <div class="match-game-info">
+            <img src="@Match.GameImage" alt="@Match.GameName" class="game-logo" />
+            <span class="game-name">@Match.GameName</span>
+        </div>
+        <span class="tournament-badge">
+            <span class="tournament-icon">🏆</span>
+            @Match.Tournament
+        </span>
+    </div>
+
+    <span class="match-status @StatusClass">@StatusLabel</span>
+
+    <div class="match-teams">
+        <div class="team">
+            <img src="@Match.Team1.Logo" alt="@Match.Team1.Name" class="team-logo" />
+            <span class="team-name">@Match.Team1.Name</span>
+            <span class="team-tag">@Match.Team1.Tag</span>
+        </div>
+
+        @if (!string.IsNullOrEmpty(Match.Score))
+        {
+            <div class="score">@Match.Score</div>
+        }
+        else
+        {
+            <div class="vs">VS</div>
+        }
+
+        <div class="team">
+            <img src="@Match.Team2.Logo" alt="@Match.Team2.Name" class="team-logo" />
+            <span class="team-name">@Match.Team2.Name</span>
+            <span class="team-tag">@Match.Team2.Tag</span>
+        </div>
+    </div>
+
+    <div class="match-info">
+        <span>📅 @Match.Date</span>
+        <span>🕐 @Match.Time</span>
+    </div>
+
+    <button class="btn-secondary">@Match.ButtonLabel</button>
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Match Match { get; set; } = default!;
+
+    private string StatusClass => Match.Status switch
+    {
+        MatchStatus.Live     => "status-live",
+        MatchStatus.Upcoming => "status-upcoming",
+        MatchStatus.Finished => "status-finished",
+        _                    => ""
+    };
+
+    private string StatusLabel => Match.Status switch
+    {
+        MatchStatus.Live     => "● Na żywo",
+        MatchStatus.Upcoming => "Nadchodzący",
+        MatchStatus.Finished => "Zakończony",
+        _                    => ""
+    };
+}

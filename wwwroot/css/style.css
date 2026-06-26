@@ -1,0 +1,603 @@
+/* ========== LIGHT / DARK MODE VARIABLES ========== */
+:root {
+    --bg-main: #f0f4f8;
+    --bg-card: #ffffff;
+    --bg-header: #1a3a4a;
+    --bg-nav: #122939;
+    --bg-footer: #122939;
+    --bg-hero: linear-gradient(135deg, #1a3a4a 0%, #2c6e89 100%);
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --text-nav: #a0bfd0;
+    --text-nav-active: #ffffff;
+    --border-color: #e2e8f0;
+    --card-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --card-shadow-hover: 0 8px 24px rgba(0,0,0,0.15);
+    --section-title: #1a3a4a;
+    --accent: #2c6e89;
+    --input-bg: #ffffff;
+}
+
+body.dark-mode {
+    --bg-main: #0d1b2a;
+    --bg-card: #162433;
+    --bg-header: #091520;
+    --bg-nav: #060f18;
+    --bg-footer: #060f18;
+    --bg-hero: linear-gradient(135deg, #091520 0%, #0d2d42 100%);
+    --text-main: #dde6f0;
+    --text-muted: #7a9ab0;
+    --text-nav: #7a9ab0;
+    --text-nav-active: #ffffff;
+    --border-color: #1e3448;
+    --card-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    --card-shadow-hover: 0 8px 24px rgba(0,0,0,0.6);
+    --section-title: #5ba3c9;
+    --accent: #3a8ab0;
+    --input-bg: #1e3448;
+}
+
+/* ========== RESET & BASE ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ========== HEADER ========== */
+.main-header {
+    background-color: var(--bg-header);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+}
+
+.user-info {
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+}
+
+/* ========== DARK MODE TOGGLE ========== */
+.theme-toggle {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.theme-toggle:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* ========== NAVIGATION ========== */
+.main-nav {
+    background-color: var(--bg-nav);
+    padding: 0 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 4px;
+}
+
+.main-nav a {
+    display: block;
+    padding: 13px 20px;
+    color: var(--text-nav);
+    text-decoration: none;
+    transition: background-color 0.25s, color 0.25s;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+}
+
+.main-nav a:hover {
+    color: white;
+    background-color: rgba(255,255,255,0.07);
+}
+
+.main-nav a.active {
+    color: white;
+    border-bottom-color: var(--accent);
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* ========== HERO ========== */
+.hero {
+    background: var(--bg-hero);
+    color: white;
+    padding: 55px 40px;
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 36px;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+/* ========== GAME BADGE ========== */
+.game-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+}
+
+.game-badge-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: contain;
+}
+
+/* ========== COUNTDOWN ========== */
+.countdown-banner {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.countdown-label {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.countdown-time {
+    font-size: 20px;
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 1px;
+    color: var(--accent);
+}
+
+.countdown-match {
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 24px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--section-title);
+    margin-bottom: 28px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+
+/* ========== MATCHES GRID ========== */
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 22px;
+    margin-bottom: 50px;
+}
+
+.match-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.match-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+/* Match Header */
+.match-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 14px;
+}
+
+.match-game-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.game-logo {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: contain;
+    background-color: var(--bg-main);
+    padding: 3px;
+}
+
+.game-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tournament-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background-color: var(--bg-main);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+/* Status */
+.match-status {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-live {
+    background-color: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+.status-upcoming {
+    background-color: rgba(243, 156, 18, 0.15);
+    color: #e67e22;
+    border: 1px solid rgba(243, 156, 18, 0.3);
+}
+
+.status-finished {
+    background-color: rgba(149, 165, 166, 0.15);
+    color: #95a5a6;
+    border: 1px solid rgba(149, 165, 166, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
+/* Teams */
+.match-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 8px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 7px;
+}
+
+.team-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: contain;
+    background-color: var(--bg-main);
+    padding: 6px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.25s;
+}
+
+.team-logo:hover {
+    transform: scale(1.08);
+}
+
+.team-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-main);
+    text-align: center;
+    max-width: 110px;
+}
+
+.team-tag {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.vs {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-muted);
+    padding: 0 8px;
+}
+
+.score {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--accent);
+    padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+.match-info {
+    display: flex;
+    justify-content: space-around;
+    padding: 11px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+
+.btn-secondary {
+    width: 100%;
+    background-color: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: background-color 0.25s, color 0.25s, transform 0.15s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* ========== HOME PAGE GAME CARDS ========== */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    margin-bottom: 50px;
+}
+
+.game-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border: 1px solid var(--border-color);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--card-shadow-hover);
+}
+
+.game-card-header {
+    padding: 32px 20px;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.game-card-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    background-color: rgba(255,255,255,0.15);
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    backdrop-filter: blur(4px);
+}
+
+.cs2-bg { background: linear-gradient(135deg, #e67e22, #c0392b); }
+.dota2-bg { background: linear-gradient(135deg, #922b21, #1a1a2e); }
+.lol-bg { background: linear-gradient(135deg, #1a6b5a, #b7950b); }
+.valorant-bg { background: linear-gradient(135deg, #c0392b, #ff6b6b); }
+
+.game-card-body {
+    padding: 18px 20px;
+    text-align: center;
+}
+
+.game-card-body p {
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    font-size: 14px;
+}
+
+.game-card-link {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ========== FOOTER ========== */
+.main-footer {
+    background-color: var(--bg-footer);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px 20px;
+    margin-top: 40px;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ========== CS2 THEME ========== */
+.theme-cs2 .main-header { background-color: #7d2e00; }
+.theme-cs2 .main-nav { background-color: #5c2000; }
+.theme-cs2 .main-nav a { color: #ffd6b0; }
+.theme-cs2 .main-nav a:hover { background-color: rgba(255,255,255,0.07); color: white; }
+.theme-cs2 .main-nav a.active { border-bottom-color: #e67e22; color: white; }
+.theme-cs2 .hero { background: linear-gradient(135deg, #7d2e00 0%, #e67e22 100%); }
+.theme-cs2 .game-badge { background-color: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+.theme-cs2 .section-title { color: #c0392b; border-bottom-color: #e67e22; }
+.theme-cs2 .score { color: #e67e22; }
+.theme-cs2 .countdown-time { color: #e67e22; }
+.theme-cs2 .btn-secondary { color: #e67e22; border-color: #e67e22; }
+.theme-cs2 .btn-secondary:hover { background-color: #e67e22; color: white; }
+.theme-cs2 .main-footer { background-color: #5c2000; }
+
+/* ========== DOTA 2 THEME ========== */
+.theme-dota2 .main-header { background-color: #1a0a0a; }
+.theme-dota2 .main-nav { background-color: #110505; }
+.theme-dota2 .main-nav a { color: #ffb3b3; }
+.theme-dota2 .main-nav a:hover { background-color: rgba(255,255,255,0.07); color: white; }
+.theme-dota2 .main-nav a.active { border-bottom-color: #c0392b; color: white; }
+.theme-dota2 .hero { background: linear-gradient(135deg, #1a0a0a 0%, #922b21 100%); }
+.theme-dota2 .game-badge { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.theme-dota2 .section-title { color: #c0392b; border-bottom-color: #922b21; }
+.theme-dota2 .score { color: #e74c3c; }
+.theme-dota2 .countdown-time { color: #e74c3c; }
+.theme-dota2 .btn-secondary { color: #c0392b; border-color: #c0392b; }
+.theme-dota2 .btn-secondary:hover { background-color: #c0392b; color: white; }
+.theme-dota2 .main-footer { background-color: #110505; }
+
+/* ========== LOL THEME ========== */
+.theme-lol .main-header { background-color: #0a3d2e; }
+.theme-lol .main-nav { background-color: #062a1f; }
+.theme-lol .main-nav a { color: #a8d8c8; }
+.theme-lol .main-nav a:hover { background-color: rgba(255,255,255,0.07); color: white; }
+.theme-lol .main-nav a.active { border-bottom-color: #f1c40f; color: white; }
+.theme-lol .hero { background: linear-gradient(135deg, #0a3d2e 0%, #b7950b 100%); }
+.theme-lol .game-badge { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.theme-lol .section-title { color: #0a3d2e; border-bottom-color: #f1c40f; }
+.theme-lol .score { color: #16a085; }
+.theme-lol .countdown-time { color: #16a085; }
+.theme-lol .btn-secondary { color: #16a085; border-color: #16a085; }
+.theme-lol .btn-secondary:hover { background-color: #16a085; color: white; }
+.theme-lol .main-footer { background-color: #062a1f; }
+
+/* ========== VALORANT THEME ========== */
+.theme-valorant { background-color: var(--bg-main); }
+.theme-valorant .main-header { background-color: #7d0a0a; }
+.theme-valorant .main-nav { background-color: #5c0606; }
+.theme-valorant .main-nav a { color: #ffcccc; }
+.theme-valorant .main-nav a:hover { background-color: rgba(255,255,255,0.07); color: white; }
+.theme-valorant .main-nav a.active { border-bottom-color: #ff6b6b; color: white; }
+.theme-valorant .hero { background: linear-gradient(135deg, #7d0a0a 0%, #ff6b6b 100%); color: white; }
+.theme-valorant .game-badge { background-color: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+.theme-valorant .section-title { color: #c0392b; border-bottom-color: #ff6b6b; }
+.theme-valorant .score { color: #e74c3c; }
+.theme-valorant .countdown-time { color: #e74c3c; }
+.theme-valorant .btn-secondary { color: #e74c3c; border-color: #e74c3c; }
+.theme-valorant .btn-secondary:hover { background-color: #e74c3c; color: white; }
+.theme-valorant .main-footer { background-color: #5c0606; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .main-header { padding: 14px 20px; flex-direction: column; gap: 10px; }
+    .main-nav { padding: 0; }
+    .main-nav ul { flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 36px 20px; }
+    .hero-content h2 { font-size: 26px; }
+    .countdown-banner { flex-wrap: wrap; padding: 12px 20px; gap: 8px; }
+    .match-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .team-logo { width: 52px; height: 52px; }
+    .container { padding: 30px 16px; }
+}
